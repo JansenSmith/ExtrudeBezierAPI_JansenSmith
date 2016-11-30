@@ -17,13 +17,16 @@ CSG part = foil.get(0)
 			.toYMin()
 
 ArrayList<CSG> parts = new ArrayList<CSG>()
-int numParts = 30
+int numParts = 100
 for(int i=0;i<numParts;i++){
 	double scale = (5+4*Math.cos(Math.PI*1*i/numParts)
 					+0.1*Math.sin(Math.PI*30*i/numParts)
 					)
+	double twistAngle = Math.toDegrees(Math.cos(Math.PI*2*i/numParts))		
 	//println scale 
-	parts.add(part.scale(scale)
+	parts.add(
+		part.scale(scale)
+			.rotx(twistAngle)
 	)
 }
 
