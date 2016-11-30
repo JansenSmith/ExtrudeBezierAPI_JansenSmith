@@ -30,4 +30,6 @@ for(int i=0;i<numParts;i++){
 	)
 }
 
-return Extrude.bezier(parts,[300,0,0],[200,200,-150],[200,200,50])
+return Extrude.bezier(parts,[300,0,0],[200,200,-150],[200,200,50]).collect{
+	it.roty(90)
+}
