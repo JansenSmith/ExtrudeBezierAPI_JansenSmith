@@ -17,7 +17,7 @@ CSG part = foil.get(0)
 			.toYMin()
 
 ArrayList<CSG> parts = new ArrayList<CSG>()
-int numParts = 10
+int numParts = 60
 for(int i=0;i<numParts;i++){
 	double scale = (5+4*Math.cos(Math.PI*1*i/numParts)
 					+0.1*Math.sin(Math.PI*30*i/numParts)
