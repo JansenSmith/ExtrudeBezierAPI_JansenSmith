@@ -28,7 +28,7 @@ def movedCubesBezier =  Extrude.moveBezier(	parts,
 ArrayList<Transform> transforms = 	Extrude.bezierToTransforms(	[0,0,300], // Control point one
 													[200,200,-150], // Control point two
 													[200,200,300], // Endpoint
-													10// Iterations
+													numParts// Iterations
 					)			
 fullBezier.addAll(movedCubesBezier)
 
