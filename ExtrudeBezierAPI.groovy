@@ -7,7 +7,7 @@ File f = ScriptingEngine
 		"airFoil.svg"// File from within the Git repo
 	)
 SVGLoad s = new SVGLoad(f.toURI())
-ArrayList<CSG>foil = s.extrude(0.1,0.01)
+ArrayList<CSG>foil = s.extrude(-1,0.01)
 
 CSG part = foil.get(0)
 			.union(foil)
@@ -17,7 +17,7 @@ CSG part = foil.get(0)
 			.toYMin()
 
 ArrayList<CSG> parts = new ArrayList<CSG>()
-int numParts = 60
+int numParts = 20
 for(int i=0;i<numParts;i++){
 	double scale = (5+4*Math.cos(Math.PI*1*i/numParts)
 					+0.1*Math.sin(Math.PI*30*i/numParts)
@@ -31,11 +31,7 @@ for(int i=0;i<numParts;i++){
 }
 
 return Extrude.bezier(	parts,
-[
-					[300.0,0.0,0.0], // Control point one
-					[200.0,200.0,-150.0], // Control point two
-					[200.0,200.0,50.0] // Endpoint
-					]
-					).collect{
-	it.roty(90)
-}
+					[(double)300.0,(double)0.0,(double)0.0], // Control point one
+					[(double)200.0,(double)200.0,(double)50.0], // Control point two
+					[(double)200.0,(double)200.0,(double)50.0] // Endpoint
+					)
