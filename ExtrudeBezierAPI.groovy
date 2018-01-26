@@ -31,9 +31,11 @@ for(int i=0;i<numParts;i++){
 }
 
 return Extrude.bezier(	parts,
-					[300,0,0], // Control point one
-					[200,200,-150], // Control point two
-					[200,200,50] // Endpoint
+[
+					[300.0,0.0,0.0], // Control point one
+					[200.0,200.0,-150.0], // Control point two
+					[200.0,200.0,50.0] // Endpoint
+					]
 					).collect{
 	it.roty(90)
 }

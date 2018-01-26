@@ -11,23 +11,24 @@ for(int i=0;i<numParts;i++){
 }
 // A full bezier extrud with the gaps between the parts filled with a convex hull of the part
 def fullBezier =  Extrude.bezier(	parts,
-					[0,0,300], // Control point one
-					[200,200,-150], // Control point two
-					[200,200,300] // Endpoint
+					[(double)0.0,(double)0.0,(double)300.0], // Control point one
+					[(double)200.0,(double)200.0,(double)-150.0], // Control point two
+					[(double)200.0,(double)200.0,(double)300.0]// Endpoint
 					)
+
 // thake the parts and just move to locations along the bezier curve
 def movedCubesBezier =  Extrude.moveBezier(	parts,
-					[0,0,300], // Control point one
-					[200,200,-150], // Control point two
-					[200,200,300] // Endpoint
+					[(double)0,(double)0,(double)300], // Control point one
+					[(double)200,(double)200,(double)-150], // Control point two
+					[(double)200,(double)200,(double)300] // Endpoint
 					).collect{
 						it.movey(200)							
 					}
 // This is for creating a set of frame transformations from the bezier parameters
 // this can be used for complex part creation or for path planning
-ArrayList<Transform> transforms = 	Extrude.bezierToTransforms(	[0,0,300], // Control point one
-													[200,200,-150], // Control point two
-													[200,200,300], // Endpoint
+ArrayList<Transform> transforms = 	Extrude.bezierToTransforms(	new Vector3d(0,(double)0,(double)300), // Control point one
+													new Vector3d((double)200,(double)200,(double)-150), // Control point two
+													new Vector3d((double)200,(double)200,(double)300), // Endpoint
 													numParts// Iterations
 					)			
 fullBezier.addAll(movedCubesBezier)
