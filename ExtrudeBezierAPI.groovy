@@ -7,7 +7,7 @@ File f = ScriptingEngine
 		"airFoil.svg"// File from within the Git repo
 	)
 SVGLoad s = new SVGLoad(f.toURI())
-ArrayList<CSG>foil = s.extrude(1,0.01)
+ArrayList<CSG>foil = s.extrude(0.01,0.01)
 
 CSG part = foil.get(0)
 			.union(foil)
